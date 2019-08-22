@@ -17,6 +17,10 @@
 const char* ssid = "SSID";
 const char* password = "PASSWORD";
 
+const uint32_t red = strip.Color(255, 0, 0);
+const uint32_t green = strip.Color(0, 255, 0);
+const uint32_t blue = strip.Color(0, 0, 255);
+const uint32_t off = strip.Color(0, 0, 0);
 
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org", NTP_UTC_OFFSET);
@@ -35,7 +39,7 @@ void setup()
 
 void initWifi()
 {
-	stripSolidColor(strip.Color(255, 0, 0));
+	stripSolidColor(red);
 	Serial.print("Connecting to: ");
 	Serial.println(ssid);
 
@@ -46,7 +50,8 @@ void initWifi()
 		Serial.print(".");
 	}
 
-	stripSolidColor(strip.Color(0, 255, 0));
+	stripSolidColor(green);
+	delay(500);
 }
 
 void initStrip()
@@ -56,7 +61,7 @@ void initStrip()
 
 	for (int i = 0; i < LED_NUM_LEDS; i++)
 	{
-		strip.setPixelColor(i, strip.Color(0, 0, 0));
+		strip.setPixelColor(i, off);
 	}
 
 	strip.show(); // Initialize all pixels to 'off'
@@ -76,17 +81,16 @@ void loop()
 
 void showTime(int hours, int minutes, int seconds)
 {
-	showDigit(hours, 0, strip.Color(255,0,0));
+	showDigit(hours, 0, red);
 	delay(DELAY_BETWEEN_UNITS);
-	showDigit(minutes, 0, strip.Color(0,255,0));
+	showDigit(minutes, 0, green);
 	delay(DELAY_BETWEEN_UNITS);
-	showDigit(seconds, 0, strip.Color(0,0,255));
+	showDigit(seconds, 0, blue);
 	delay(DELAY_BETWEEN_UNITS);
 }
 
 void showDigit(int value, int offset, uint32_t on)
 {
-	uint32_t off = strip.Color(0, 0, 0);
 	for (int pixelNum = 0; pixelNum < 6; pixelNum++)
 	{
 		strip.setPixelColor(offset + pixelNum, (value & (1 << pixelNum)) ? on : off);
