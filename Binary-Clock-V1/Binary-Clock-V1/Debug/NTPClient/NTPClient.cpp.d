@@ -1,6 +1,6 @@
-C:\Users\TheTrustedOne\AppData\Local\Temp\VMBuilds\Binary-Clock-V1\esp8266_nodemcuv2\Debug\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp.o: \
- C:\Users\TheTrustedOne\Documents\Arduino\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.cpp \
- C:\Users\TheTrustedOne\Documents\Arduino\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel.h \
+C:\Users\TheTrustedOne\AppData\Local\Temp\VMBuilds\Binary-Clock-V1\esp8266_nodemcuv2\Debug\NTPClient\NTPClient.cpp.o: \
+ C:\Users\TheTrustedOne\Documents\Arduino\libraries\NTPClient\NTPClient.cpp \
+ C:\Users\TheTrustedOne\Documents\Arduino\libraries\NTPClient\NTPClient.h \
  C:\Users\TheTrustedOne\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266/Arduino.h \
  C:\Users\TheTrustedOne\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1/tools/sdk/libc/xtensa-lx106-elf/include/stdlib.h \
  C:\Users\TheTrustedOne\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1/tools/sdk/libc/xtensa-lx106-elf/include/machine/ieeefp.h \
@@ -58,4 +58,7 @@ C:\Users\TheTrustedOne\AppData\Local\Temp\VMBuilds\Binary-Clock-V1\esp8266_nodem
  C:\Users\TheTrustedOne\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266/md5.h \
  C:\Users\TheTrustedOne\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266/debug.h \
  C:\Users\TheTrustedOne\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\variants\nodemcu/pins_arduino.h \
- C:\Users\TheTrustedOne\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\variants\nodemcu/../generic/common.h
+ C:\Users\TheTrustedOne\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\variants\nodemcu/../generic/common.h \
+ C:\Users\TheTrustedOne\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266/Udp.h \
+ C:\Users\TheTrustedOne\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266/IPAddress.h \
+ C:\Users\TheTrustedOne\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.4.1\cores\esp8266/Printable.h

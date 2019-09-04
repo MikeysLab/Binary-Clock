@@ -4,7 +4,7 @@
 #include <WiFiUdp.h>
 
 //Global Defines
-#define DELAY_BETWEEN_UNITS	4000
+#define DELAY_BETWEEN_UNITS	1000
 
 //NTP Defines
 #define NTP_UTC_OFFSET		-14400 // UTC -4 (Offset * 60 * 60)
@@ -14,17 +14,17 @@
 #define LED_NUM_LEDS		6
 #define LED_BRIGHTNESS		255
 
-const char* ssid = "SSID";
-const char* password = "PASSWORD";
+const char* ssid = "DigitalAwakenings";
+const char* password = "2264761246";
+
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP, "pool.ntp.org", NTP_UTC_OFFSET);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(LED_NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 const uint32_t red = strip.Color(255, 0, 0);
 const uint32_t green = strip.Color(0, 255, 0);
 const uint32_t blue = strip.Color(0, 0, 255);
 const uint32_t off = strip.Color(0, 0, 0);
-
-WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, "pool.ntp.org", NTP_UTC_OFFSET);
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(LED_NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 void setup()
 {
@@ -81,19 +81,15 @@ void loop()
 
 void showTime(int hours, int minutes, int seconds)
 {
-	showDigit(hours, 0, red);
-	delay(DELAY_BETWEEN_UNITS);
-	showDigit(minutes, 0, green);
-	delay(DELAY_BETWEEN_UNITS);
-	showDigit(seconds, 0, blue);
+	showDigit(hours, minutes, seconds);
 	delay(DELAY_BETWEEN_UNITS);
 }
 
-void showDigit(int value, int offset, uint32_t on)
+void showDigit(int hour, int minute, int second)
 {
 	for (int pixelNum = 0; pixelNum < 6; pixelNum++)
 	{
-		strip.setPixelColor(offset + pixelNum, (value & (1 << pixelNum)) ? on : off);
+		strip.setPixelColor(pixelNum, strip.Color((second & (1 << pixelNum)) ? 255 : 0, (minute & (1 << pixelNum)) ? 255 : 0, (hour & (1 << pixelNum)) ? 255 : 0));
 	}
 	strip.show();
 }
