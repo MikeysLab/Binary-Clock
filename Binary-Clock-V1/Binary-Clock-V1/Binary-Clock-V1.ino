@@ -4,14 +4,14 @@
 #include <WiFiUdp.h>
 
 //Global Defines
-#define DELAY_BETWEEN_UNITS	1000
+#define UPDATE_DELAY      1000
 
 //NTP Defines
 #define NTP_UTC_OFFSET		-14400 // UTC -4 (Offset * 60 * 60)
 
 //LED Defines
-#define LED_PIN				D3
-#define LED_NUM_LEDS		6
+#define LED_PIN				    D3
+#define LED_NUM_LEDS		  6
 #define LED_BRIGHTNESS		255
 
 const char* ssid = "DigitalAwakenings";
@@ -69,6 +69,7 @@ void initStrip()
 
 void loop()
 {
+  unsigned long lastRun = millis();
 	timeClient.update();
 
 	Serial.print(timeClient.getHours());
@@ -77,6 +78,11 @@ void loop()
 	Serial.print(":");
 	Serial.println(timeClient.getSeconds());
 	showTime(timeClient.getHours(), timeClient.getMinutes(), timeClient.getSeconds());
+
+  while(lastRun + UPDATE_DELAY > millis())
+  {
+    
+  }
 }
 
 void showTime(int hours, int minutes, int seconds)
