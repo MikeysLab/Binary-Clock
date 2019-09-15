@@ -14,8 +14,8 @@
 #define LED_NUM_LEDS		  6
 #define LED_BRIGHTNESS		255
 
-const char* ssid = "DigitalAwakenings";
-const char* password = "2264761246";
+const char* ssid = "<YourSSID>";
+const char* password = "<YourPassword>";
 
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org", NTP_UTC_OFFSET);
